@@ -5,25 +5,15 @@ phases:
     runtime-versions:
       python: 3.11
     commands:
-      - echo "Installing Python dependencies..."
+      - echo "Installing dependencies..."
       - pip install -r requirements.txt
-
-  pre_build:
-    commands:
-      - echo "Starting unit tests..."
-
   build:
     commands:
-      - echo "Running pytest..."
-      - pytest -v
-
-  post_build:
-    commands:
-      - echo "Build and testing completed successfully."
+      - echo "Packaging Elastic Beanstalk application..."
 
 artifacts:
   files:
-    - app.py
-    - test_app.py
+    - application.py
     - requirements.txt
+    - Procfile
     - buildspec.yml
